@@ -2,14 +2,14 @@
 {
     internal class Group
     {
-        static string no = "AP101";
+        static int no = 100;
         public string No { get; }
         List<Student> Students;
         public Group()
         {
             Students = new List<Student>();
-            no = IncreaseGroupNo();
-            No = no;
+            no++;
+            No = $"AP{no}";
         }
         public void AddStudent(Student student)
         {
@@ -36,24 +36,6 @@
 
         }
 
-        public static string IncreaseGroupNo()
-        {          
-            int index = 0;
-            for (int i = 0; i < no.Length; i++)
-            {
-                if (char.IsDigit(no[i]))
-                {
-                    index = i;
-                    break;
-                }
-            }
-            string subStr = no.Substring(index, 3);
-            int num = int.Parse(subStr);
-            num++;
-            var result = $"AP{num}";
-            return result;
-
-        }
 
     }
 }
